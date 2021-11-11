@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neagu_Denisa_Lab2", "Neagu_Denisa_Lab2.csproj", "{BC0115BE-62D3-40C3-926F-12821005F619}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neagu_Denisa_Lab2", "Neagu_Denisa_Lab2.csproj", "{BC0115BE-62D3-40C3-926F-12821005F619}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryWebAPI", "..\LibraryWebAPI\LibraryWebAPI.csproj", "{C0AA5EB0-D081-402B-B776-822727A58C18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryModel", "..\LibraryModel\LibraryModel.csproj", "{F6ECB0F5-6CAA-4A1D-A2F8-6E0495FD278A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{BC0115BE-62D3-40C3-926F-12821005F619}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC0115BE-62D3-40C3-926F-12821005F619}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC0115BE-62D3-40C3-926F-12821005F619}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0AA5EB0-D081-402B-B776-822727A58C18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0AA5EB0-D081-402B-B776-822727A58C18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0AA5EB0-D081-402B-B776-822727A58C18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0AA5EB0-D081-402B-B776-822727A58C18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6ECB0F5-6CAA-4A1D-A2F8-6E0495FD278A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6ECB0F5-6CAA-4A1D-A2F8-6E0495FD278A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6ECB0F5-6CAA-4A1D-A2F8-6E0495FD278A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6ECB0F5-6CAA-4A1D-A2F8-6E0495FD278A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
