@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Identity.Models;
+
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 
@@ -22,8 +22,7 @@ namespace Neagu_Denisa_Lab2.Controllers
         public ViewResult Create() => View();
         [HttpPost]
         [ActionName("Create")]
-        public async Task<IActionResult> Create_Post(string claimType,
-       string claimValue)
+        public async Task<IActionResult> Create_Post(string claimType,string claimValue)
         {
             IdentityUser user = await
            userManager.GetUserAsync(HttpContext.User);
@@ -40,7 +39,7 @@ namespace Neagu_Denisa_Lab2.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(string claimValues)
         {
-            IdentityUseruser = await
+            IdentityUser user = await
            userManager.GetUserAsync(HttpContext.User);
             string[] claimValuesArray = claimValues.Split(";");
             string claimType = claimValuesArray[0], claimValue =

@@ -18,9 +18,10 @@ namespace Neagu_Denisa_Lab2.Areas.Identity
                 services.AddDbContext<IdentityContext>(options =>
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("IdentityContextConnection")));
-
-                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddIdentity<IdentityUser, IdentityRole>(options =>
+                    options.SignIn.RequireConfirmedAccount = true)
                     .AddEntityFrameworkStores<IdentityContext>();
+
             });
         }
     }

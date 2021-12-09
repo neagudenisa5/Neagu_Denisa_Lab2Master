@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Neagu_Denisa_Lab2.Data;
 using Microsoft.EntityFrameworkCore;
 using Neagu_Denisa_Lab2.Hubs;
+using Microsoft.AspNetCore.Identity;
+using System;
 
 namespace Neagu_Denisa_Lab2
 {
@@ -22,8 +24,44 @@ namespace Neagu_Denisa_Lab2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<LibraryContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<LibraryContext>(options =>
+
+           options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddSignalR();
+            services.AddRazorPages();
+
+            services.Configure<IdentityOptions>(options => {
+
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 3;
+                options.Lockout.AllowedForNewUsers = true;
+            });
+
+            services.Configure<IdentityOptions>(options => {
+
+                options.Password.RequireDigit=true;
+                options.Password.RequiredLength=8;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Lockout.AllowedForNewUsers = true;
+            });
+            services.AddAuthorization(opts => {
+                opts.AddPolicy("OnlySales", policy => {
+                    policy.RequireClaim("Department", "Sales");
+                });
+            });
+            services.AddAuthorization(opts => {
+                opts.AddPolicy("SalesManager", policy => {
+                    policy.RequireRole("Manager");
+                    policy.RequireClaim("Department", "Sales");
+                });
+            });
+            services.ConfigureApplicationCookie(opts =>
+            {
+                opts.AccessDeniedPath = "/Identity/Account/AccessDenied";
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +92,8 @@ namespace Neagu_Denisa_Lab2
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapHub<ChatHub>("/chathub");
                 endpoints.MapRazorPages();
+                
+
 
             });
         }

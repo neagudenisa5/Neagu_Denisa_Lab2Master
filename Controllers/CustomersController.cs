@@ -10,9 +10,11 @@ using Microsoft.EntityFrameworkCore;
 using Neagu_Denisa_Lab2.Data;
 using Neagu_Denisa_Lab2.Models;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Neagu_Denisa_Lab2.Controllers
 {
+    [Authorize(Policy = "SalesManager")]
     public class CustomersController : Controller
     {
         private readonly LibraryContext _context;
